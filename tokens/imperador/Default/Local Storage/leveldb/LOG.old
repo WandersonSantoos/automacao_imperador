@@ -1,0 +1,6 @@
+2025/08/05-19:49:21.340 39e0 Reusing MANIFEST C:\Users\Wanderson\Documents\automacao_imperador\tokens\imperador\Default\Local Storage\leveldb/MANIFEST-000001
+2025/08/05-19:49:21.347 39e0 Recovering log #7
+2025/08/05-19:49:21.351 39e0 Reusing old log C:\Users\Wanderson\Documents\automacao_imperador\tokens\imperador\Default\Local Storage\leveldb/000007.log 
+2025/08/05-19:51:21.741 3a1c Level-0 table #11: started
+2025/08/05-19:51:21.750 3a1c Level-0 table #11: 19963 bytes OK
+2025/08/05-19:51:21.752 3a1c Delete type=0 #7

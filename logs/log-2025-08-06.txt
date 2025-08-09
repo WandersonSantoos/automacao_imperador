@@ -1,0 +1,67 @@
+[19:25:53] ⏰ Produto 0 agendado para 08:00
+[19:25:53] ⏰ Produto 1 agendado para 09:00
+[19:25:53] ⏰ Produto 2 agendado para 10:00
+[19:25:53] ⏰ Produto 3 agendado para 11:00
+[19:25:53] ⏰ Produto 4 agendado para 12:00
+[19:25:53] ⏰ Produto 5 agendado para 13:00
+[19:25:53] ⏰ Produto 6 agendado para 14:00
+[19:25:53] ⏰ Produto 7 agendado para 15:00
+[19:25:53] ⏰ Produto 8 agendado para 16:00
+[19:25:53] ⏰ Produto 9 agendado para 17:00
+[19:25:53] ⏰ Produto 10 agendado para 18:00
+[19:25:53] ⏰ Produto 11 agendado para 19:30
+[19:25:53] ⏰ Produto 12 agendado para 20:00
+[19:25:53] ⏰ Produto 13 agendado para 21:00
+[19:25:53] ⏰ Produto 14 agendado para 22:00
+[19:29:16] ⏰ Produto 0 agendado para 08:00
+[19:29:16] ⏰ Produto 1 agendado para 09:00
+[19:29:16] ⏰ Produto 2 agendado para 10:00
+[19:29:16] ⏰ Produto 3 agendado para 11:00
+[19:29:16] ⏰ Produto 4 agendado para 12:00
+[19:29:16] ⏰ Produto 5 agendado para 13:00
+[19:29:16] ⏰ Produto 6 agendado para 14:00
+[19:29:16] ⏰ Produto 7 agendado para 15:00
+[19:29:16] ⏰ Produto 8 agendado para 16:00
+[19:29:16] ⏰ Produto 9 agendado para 17:00
+[19:29:16] ⏰ Produto 10 agendado para 18:00
+[19:29:16] ⏰ Produto 11 agendado para 19:30
+[19:29:16] ⏰ Produto 12 agendado para 20:00
+[19:29:16] ⏰ Produto 13 agendado para 21:00
+[19:29:16] ⏰ Produto 14 agendado para 22:00
+[19:30:00] ❌ Erro ao enviar para Meus Arquivos: wid error: invalid wid
+[19:30:00] ❌ Erro ao enviar para Promos & Cupons VIP #01 - Teste: wid error: invalid wid
+[19:30:00] ❌ Erro ao enviar para Imperador da Promo #01: wid error: invalid wid
+[19:32:45] ⏰ Produto 0 agendado para 08:00
+[19:32:45] ⏰ Produto 1 agendado para 09:00
+[19:32:45] ⏰ Produto 2 agendado para 10:00
+[19:32:45] ⏰ Produto 3 agendado para 11:00
+[19:32:45] ⏰ Produto 4 agendado para 12:00
+[19:32:45] ⏰ Produto 5 agendado para 13:00
+[19:32:45] ⏰ Produto 6 agendado para 14:00
+[19:32:45] ⏰ Produto 7 agendado para 15:00
+[19:32:45] ⏰ Produto 8 agendado para 16:00
+[19:32:45] ⏰ Produto 9 agendado para 17:00
+[19:32:45] ⏰ Produto 10 agendado para 18:00
+[19:32:45] ⏰ Produto 11 agendado para 19:30
+[19:32:45] ⏰ Produto 12 agendado para 20:00
+[19:32:45] ⏰ Produto 13 agendado para 21:00
+[19:32:45] ⏰ Produto 14 agendado para 22:00
+[19:37:12] ❌ Erro ao iniciar WppConnect: Cannot read properties of undefined (reading 'm')
+[19:56:34] ⏰ Produto 0 agendado para 08:00
+[19:56:34] ⏰ Produto 1 agendado para 09:00
+[19:56:34] ⏰ Produto 2 agendado para 10:00
+[19:56:34] ⏰ Produto 3 agendado para 11:00
+[19:56:34] ⏰ Produto 4 agendado para 12:00
+[19:56:34] ⏰ Produto 5 agendado para 13:00
+[19:56:34] ⏰ Produto 6 agendado para 14:00
+[19:56:34] ⏰ Produto 7 agendado para 15:00
+[19:56:34] ⏰ Produto 8 agendado para 16:00
+[19:56:34] ⏰ Produto 9 agendado para 17:00
+[19:56:34] ⏰ Produto 10 agendado para 18:00
+[19:56:34] ⏰ Produto 11 agendado para 19:58
+[19:56:34] ⏰ Produto 12 agendado para 20:00
+[19:56:34] ⏰ Produto 13 agendado para 21:00
+[19:56:34] ⏰ Produto 14 agendado para 22:00
+[19:58:00] ⚠️ Produto 11 já foi enviado às 19:58 hoje.
+[20:00:02] ✅ Produto 12 enviado para 120363421554028346@g.us às 20:00
+[20:00:03] ✅ Produto 12 enviado para 120363402322780461@g.us às 20:00
