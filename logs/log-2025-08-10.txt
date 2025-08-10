@@ -1,0 +1,17 @@
+[21:18:23] ⏰ Produto 0 agendado para 08:00
+[21:18:23] ⏰ Produto 1 agendado para 09:00
+[21:18:23] ⏰ Produto 2 agendado para 10:00
+[21:18:23] ⏰ Produto 3 agendado para 11:00
+[21:18:23] ⏰ Produto 4 agendado para 12:00
+[21:18:23] ⏰ Produto 5 agendado para 13:00
+[21:18:23] ⏰ Produto 6 agendado para 14:00
+[21:18:23] ⏰ Produto 7 agendado para 15:00
+[21:18:23] ⏰ Produto 8 agendado para 16:00
+[21:18:23] ⏰ Produto 9 agendado para 17:00
+[21:18:23] ⏰ Produto 10 agendado para 18:00
+[21:18:23] ⏰ Produto 11 agendado para 19:00
+[21:18:23] ⏰ Produto 12 agendado para 20:00
+[21:18:23] ⏰ Produto 13 agendado para 21:20
+[21:18:23] ⏰ Produto 14 agendado para 22:00
+[21:20:02] [SIMULAÇÃO] Envio para 120363421554028346@g.us - Produto 13 (Kit Produto para Lavar Moto e Carro Vonixx) - IMG: https://drive.google.com/uc?export=download&id=1HCJeAdcbrGKshhcEFk3QwI-Q7Fw7zwCA
+[21:20:03] [SIMULAÇÃO] Envio para 120363402322780461@g.us - Produto 13 (Kit Produto para Lavar Moto e Carro Vonixx) - IMG: https://drive.google.com/uc?export=download&id=1HCJeAdcbrGKshhcEFk3QwI-Q7Fw7zwCA
