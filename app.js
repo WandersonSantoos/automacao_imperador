@@ -9,8 +9,9 @@ const glob = require('glob');
 // === CONFIGURAÇÕES ===
 const LISTAR_GRUPOS = false;
 const GRUPOS = [
-  '120363421554028346@g.us',
-  '120363402322780461@g.us'
+  '120363421554028346@g.us', // Meus Arquivos
+  '120363402322780461@g.us', // Promos & Cupons VIP #01 - Teste
+  '120363418219347721@g.us' // Imperador da Promo #01
 ];
 
 // Pasta LOCAL (fallback opcional)

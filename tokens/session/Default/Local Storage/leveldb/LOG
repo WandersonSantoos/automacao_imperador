@@ -1,3 +1,15 @@
-2025/08/09-21:18:16.097 445c Reusing MANIFEST C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/08/09-21:18:16.104 445c Recovering log #48
-2025/08/09-21:18:16.108 445c Reusing old log C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/000048.log 
+2025/08/10-10:45:20.042 1120 Reusing MANIFEST C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/MANIFEST-000001
+2025/08/10-10:45:20.051 1120 Recovering log #48
+2025/08/10-10:45:20.055 1120 Reusing old log C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/000048.log 
+2025/08/10-11:48:20.415 1120 Level-0 table #52: started
+2025/08/10-11:48:20.422 1120 Level-0 table #52: 13271 bytes OK
+2025/08/10-11:48:20.425 1120 Delete type=0 #48
+2025/08/10-11:48:20.428 1120 Compacting 4@0 + 1@1 files
+2025/08/10-11:48:20.433 1120 Generated table #53@0: 168 keys, 12077 bytes
+2025/08/10-11:48:20.433 1120 Compacted 4@0 + 1@1 files => 12077 bytes
+2025/08/10-11:48:20.433 1120 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/08/10-11:48:20.435 1120 Delete type=2 #42
+2025/08/10-11:48:20.435 1120 Delete type=2 #44
+2025/08/10-11:48:20.435 1120 Delete type=2 #46
+2025/08/10-11:48:20.436 1120 Delete type=2 #49
+2025/08/10-11:48:20.436 1120 Delete type=2 #52

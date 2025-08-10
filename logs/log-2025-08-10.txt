@@ -15,3 +15,46 @@
 [21:18:23] ⏰ Produto 14 agendado para 22:00
 [21:20:02] [SIMULAÇÃO] Envio para 120363421554028346@g.us - Produto 13 (Kit Produto para Lavar Moto e Carro Vonixx) - IMG: https://drive.google.com/uc?export=download&id=1HCJeAdcbrGKshhcEFk3QwI-Q7Fw7zwCA
 [21:20:03] [SIMULAÇÃO] Envio para 120363402322780461@g.us - Produto 13 (Kit Produto para Lavar Moto e Carro Vonixx) - IMG: https://drive.google.com/uc?export=download&id=1HCJeAdcbrGKshhcEFk3QwI-Q7Fw7zwCA
+[10:45:27] ⏰ Produto 0 agendado para 08:00
+[10:45:27] ⏰ Produto 1 agendado para 09:00
+[10:45:27] ⏰ Produto 2 agendado para 10:00
+[10:45:27] ⏰ Produto 3 agendado para 11:00
+[10:45:27] ⏰ Produto 4 agendado para 12:00
+[10:45:27] ⏰ Produto 5 agendado para 13:00
+[10:45:27] ⏰ Produto 6 agendado para 14:00
+[10:45:27] ⏰ Produto 7 agendado para 15:00
+[10:45:27] ⏰ Produto 8 agendado para 16:00
+[10:45:27] ⏰ Produto 9 agendado para 17:00
+[10:45:27] ⏰ Produto 10 agendado para 18:00
+[10:45:27] ⏰ Produto 11 agendado para 19:00
+[10:45:27] ⏰ Produto 12 agendado para 20:00
+[10:45:27] ⏰ Produto 13 agendado para 21:00
+[10:45:27] ⏰ Produto 14 agendado para 22:00
+[11:00:07] ✅ Produto 3 (Furadeira De Impacto) enviado para 120363421554028346@g.us às 11:00 [IMG:Drive -> https://drive.google.com/uc?export=download&id=1MUmEN5ARXYjQXGUXs4R-7IILog5ko0pU]
+[11:00:11] ✅ Produto 3 (Furadeira De Impacto) enviado para 120363402322780461@g.us às 11:00 [IMG:Drive -> https://drive.google.com/uc?export=download&id=1MUmEN5ARXYjQXGUXs4R-7IILog5ko0pU]
+[12:00:06] ✅ Produto 4 (Creatina Monohidratada) enviado para 120363421554028346@g.us às 12:00 [IMG:Drive -> https://drive.google.com/uc?export=download&id=1LaW7lyX5FfMdVWMZfQtZfgAn3AYUi2Uy]
+[12:00:10] ✅ Produto 4 (Creatina Monohidratada) enviado para 120363402322780461@g.us às 12:00 [IMG:Drive -> https://drive.google.com/uc?export=download&id=1LaW7lyX5FfMdVWMZfQtZfgAn3AYUi2Uy]
+[13:00:01] ❌ Erro ao enviar para 120363421554028346@g.us (Produto: Smartwatch Relógio Inteligente): Attempted to use detached Frame 'CCF8D56BC26F5F993DA31007BD6C7454'.
+Error: Attempted to use detached Frame 'CCF8D56BC26F5F993DA31007BD6C7454'.
+    at CdpFrame.<anonymous> (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\puppeteer-core\lib\cjs\puppeteer\util\decorators.js:107:23)
+    at CdpPage.evaluate (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:822:43)
+    at C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:99:56
+    at step (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:49:23)
+    at Object.next (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:30:53)
+    at C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:24:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:20:12)
+    at evaluateAndReturn (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:71:12)
+    at Whatsapp.<anonymous> (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\layers\host.layer.js:643:82)
+[13:00:01] ❌ Erro ao enviar para 120363402322780461@g.us (Produto: Smartwatch Relógio Inteligente): Attempted to use detached Frame 'CCF8D56BC26F5F993DA31007BD6C7454'.
+Error: Attempted to use detached Frame 'CCF8D56BC26F5F993DA31007BD6C7454'.
+    at CdpFrame.<anonymous> (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\puppeteer-core\lib\cjs\puppeteer\util\decorators.js:107:23)
+    at CdpPage.evaluate (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:822:43)
+    at C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:99:56
+    at step (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:49:23)
+    at Object.next (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:30:53)
+    at C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:24:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:20:12)
+    at evaluateAndReturn (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\helpers\evaluate-and-return.js:71:12)
+    at Whatsapp.<anonymous> (C:\Users\Wanderson\GitHub\automacao_imperador\node_modules\@wppconnect-team\wppconnect\dist\api\layers\host.layer.js:643:82)
