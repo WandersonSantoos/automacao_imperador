@@ -1,3 +1,6 @@
-2025/08/09-21:18:16.097 445c Reusing MANIFEST C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/08/09-21:18:16.104 445c Recovering log #48
-2025/08/09-21:18:16.108 445c Reusing old log C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/000048.log 
+2025/08/11-17:45:48.318 5c7c Reusing MANIFEST C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/MANIFEST-000001
+2025/08/11-17:45:48.333 5c7c Recovering log #75
+2025/08/11-17:45:48.338 5c7c Reusing old log C:\Users\Wanderson\GitHub\automacao_imperador\tokens\session\Default\Local Storage\leveldb/000075.log 
+2025/08/11-18:23:48.591 3c34 Level-0 table #79: started
+2025/08/11-18:23:48.607 3c34 Level-0 table #79: 13608 bytes OK
+2025/08/11-18:23:48.609 3c34 Delete type=0 #75

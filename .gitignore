@@ -1,1 +1,13 @@
+# dependências
+node_modules/
+
+# credenciais e estado
 credentials.json
+enviados.json
+tokens/
+logs/
+
+# SO/IDE
+.DS_Store
+Thumbs.db
+.vscode/
