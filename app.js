@@ -4,7 +4,7 @@
  *  DEPENDÊNCIAS
  * ======================= */
 const wppconnect = require('@wppconnect-team/wppconnect');
-const puppeteer = require('puppeteer'); // para usar o Chromium compatível
+const puppeteer = require('puppeteer'); // Chromium compatível
 const { google } = require('googleapis');
 const fs = require('fs');
 const path = require('path');
@@ -58,7 +58,7 @@ const GOOGLE_SCOPES = [
 let gAuth = null;
 
 /* =======================
- *  UTILS
+ *  UTILS BÁSICOS
  * ======================= */
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const hojeISO = () => new Date().toISOString().split('T')[0];
@@ -74,6 +74,25 @@ function logToFile(msg) {
   fs.appendFileSync(file, `[${new Date().toLocaleTimeString()}] ${msg}\n`);
 }
 
+/* =======================
+ *  LOG / VERBOSIDADE
+ * ======================= */
+// níveis em ordem: error < warn < info < debug
+const LOG_LEVEL = (process.env.LOG_LEVEL || 'info').toLowerCase();
+const LEVELS = { error: 0, warn: 1, info: 2, debug: 3 };
+const canLog = (level) => LEVELS[level] <= LEVELS[LOG_LEVEL];
+
+function log(level, msg) {
+  if (canLog(level)) {
+    const ts = new Date().toLocaleTimeString();
+    console.log(`[${ts}] ${level.toUpperCase()}: ${msg}`);
+  }
+  logToFile(`${level.toUpperCase()}: ${msg}`);
+}
+
+/* =======================
+ *  ENVIADOS (controle diário)
+ * ======================= */
 function carregarEnviados() {
   try {
     return JSON.parse(fs.readFileSync(ARQUIVO_ENVIADOS, 'utf8'));
@@ -90,7 +109,9 @@ function salvarEnviado(produto, hora) {
   fs.writeFileSync(ARQUIVO_ENVIADOS, JSON.stringify(enviados, null, 2));
 }
 
-// Converte "R$ 3.899,00" -> 3899.00
+/* =======================
+ *  FORMATADORES
+ * ======================= */
 function parseBRL(v) {
   if (v == null) return 0;
   const s = String(v).replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.');
@@ -146,7 +167,7 @@ async function carregarProdutos() {
     });
     const rows = data.values || [];
     if (!rows.length) {
-      console.warn('⚠️ Nenhum dado encontrado na planilha');
+      log('warn', 'Nenhum dado encontrado na planilha');
       return [];
     }
     const headers = rows[0];
@@ -156,8 +177,7 @@ async function carregarProdutos() {
       return p;
     });
   } catch (err) {
-    console.error('❌ Erro ao ler Google Sheets:', err.message);
-    logToFile(`❌ Erro ao ler Google Sheets: ${err.message}`);
+    log('error', `Erro ao ler Google Sheets: ${err.message}`);
     return [];
   }
 }
@@ -184,7 +204,7 @@ async function ensureFileIsPublic(drive, fileId) {
       });
     }
   } catch (e) {
-    logToFile(`⚠️ Falha ao garantir permissão pública: ${e.message}`);
+    log('warn', `Falha ao garantir permissão pública: ${e.message}`);
   }
 }
 
@@ -249,57 +269,59 @@ async function enviarProduto(produto, index, client, horaAgendada) {
   const idProdutoHoje = `${produto['Título']} | ${horaAgendada} | ${hojeISO()}`;
 
   if (enviados.some((e) => e.id === idProdutoHoje)) {
-    const msg = `⚠️ Produto ${index} (${produto['Título']}) já foi enviado às ${horaAgendada} hoje.`;
-    console.log(msg);
-    logToFile(msg);
+    log('warn', `Produto ${index} (${produto['Título']}) já foi marcado como enviado às ${horaAgendada} hoje.`);
     return;
   }
 
   if (!produto['Título'] || !produto['Link Afiliado']) {
-    const msg = `❌ Produto ${index} inválido. Campos obrigatórios ausentes (Título/Link Afiliado).`;
-    console.warn(msg);
-    logToFile(msg);
+    log('error', `Produto ${index} inválido (Título/Link Afiliado ausentes).`);
     return;
   }
 
   const img = await resolverImagem(produto);
   if (!img) {
-    const msg = `❌ Imagem não encontrada para "${produto['Título']}" (verifique no Drive/pasta local).`;
-    console.warn(msg);
-    logToFile(msg);
+    log('error', `Imagem não encontrada para "${produto['Título']}" (Drive/Local).`);
     return;
   }
 
   const mensagem = montarMensagem(produto);
 
+  // Consolidação por execução (terminal: 1 linha; arquivo: detalhado por grupo)
+  const enviadosOk = [];
+  const falhas = [];
+
   for (const grupo of GRUPOS) {
     try {
       const isConnected = await client.isConnected();
       if (!isConnected) {
-        const m = `❌ Cliente desconectado antes do envio para ${grupo}`;
-        console.warn(m);
-        logToFile(m);
+        const m = `Cliente desconectado antes do envio para ${grupo}`;
+        falhas.push({ grupo, motivo: 'desconectado' });
+        logToFile(`❌ ${m}`);
         continue;
       }
 
       if (MODO_TESTE) {
-        const sim = `[SIMULAÇÃO] Envio para ${grupo} - Produto ${index} (${produto['Título']}) - IMG: ${img.caminho}`;
-        console.log(sim);
-        logToFile(sim);
+        logToFile(`[SIMULAÇÃO] Envio para ${grupo} - Produto ${index} (${produto['Título']}) - IMG: ${img.caminho}`);
       } else {
         await client.sendImage(grupo, img.caminho, img.nome, mensagem);
-        const ok = `✅ Produto ${index} (${produto['Título']}) enviado para ${grupo} às ${horaAgendada}`;
-        console.log(ok);
-        logToFile(`${ok} [IMG:${img.tipo === 'url' ? 'Drive' : 'Local'} -> ${img.caminho}]`);
+        enviadosOk.push(grupo);
+        logToFile(`✅ Produto ${index} (${produto['Título']}) enviado para ${grupo} às ${horaAgendada} [IMG:${img.tipo === 'url' ? 'Drive' : 'Local'} -> ${img.caminho}]`);
       }
 
       await delay(1000);
     } catch (err) {
-      const msg = `❌ Erro ao enviar para ${grupo} (Produto: ${produto['Título']}): ${err.message}\n${err.stack}`;
-      console.error(msg);
-      logToFile(msg);
+      falhas.push({ grupo, motivo: err.message });
+      logToFile(`❌ Erro ao enviar para ${grupo} (Produto: ${produto['Título']}): ${err.message}\n${err.stack}`);
     }
   }
+
+  // Terminal: apenas um resumo compactado desta execução
+  const okQt = enviadosOk.length;
+  const failQt = falhas.length;
+  log(
+    'info',
+    `Envio ${horaAgendada} | #${index} "${produto['Título']}": OK=${okQt}${okQt ? ` (${enviadosOk.join(', ')})` : ''}${failQt ? ` | FALHAS=${failQt}` : ''}`
+  );
 
   if (!MODO_TESTE) salvarEnviado(produto, horaAgendada);
 }
@@ -311,8 +333,7 @@ async function enviarProduto(produto, index, client, horaAgendada) {
   try {
     // Opções de browser/puppeteer robustas
     const puppeteerOptions = {
-      executablePath:
-        CHROME_MODE === 'system' ? CHROME_PATH : puppeteer.executablePath(),
+      executablePath: CHROME_MODE === 'system' ? CHROME_PATH : puppeteer.executablePath(),
       headless: 'new'
     };
 
@@ -321,12 +342,7 @@ async function enviarProduto(produto, index, client, horaAgendada) {
       debug: false,
       headless: true, // coloque false para ver a janela
       useChrome: true,
-      browserArgs: [
-        '--no-sandbox',
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
-        '--disable-setuid-sandbox'
-      ],
+      browserArgs: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', '--disable-setuid-sandbox'],
       puppeteerOptions,
       tokenStore: 'file',
       folderNameToken: 'tokens',
@@ -334,6 +350,7 @@ async function enviarProduto(produto, index, client, horaAgendada) {
     });
 
     if (LISTAR_GRUPOS) {
+      // Modo listagem mantém saída explícita no terminal por ser uma ação deliberada
       console.log('\n📢 LISTANDO GRUPOS DISPONÍVEIS:\n');
       await client.waitForLogin();
       await delay(3000);
@@ -347,8 +364,13 @@ async function enviarProduto(produto, index, client, horaAgendada) {
       return;
     }
 
+    // Estado da sessão: silencioso (apenas mudanças)
+    let lastState = null;
     client.onStateChange((state) => {
-      console.log('📶 Estado da sessão:', state);
+      if (state !== lastState) {
+        log('info', `Estado da sessão: ${state}`);
+        lastState = state;
+      }
       if (['CONFLICT', 'UNPAIRED', 'UNLAUNCHED'].includes(state)) {
         client.useHere();
       }
@@ -358,11 +380,11 @@ async function enviarProduto(produto, index, client, horaAgendada) {
     const produtos = await carregarProdutos();
 
     if (produtos.length < HORARIOS.length) {
-      const msg = `⚠️ Menos produtos (${produtos.length}) do que horários (${HORARIOS.length})`;
-      console.warn(msg);
-      logToFile(msg);
+      log('warn', `Menos produtos (${produtos.length}) do que horários (${HORARIOS.length})`);
     }
 
+    // Agendamentos: 1 resumo no terminal; detalhado só no arquivo
+    const horariosValidos = [];
     HORARIOS.forEach((horaAgendada, i) => {
       const [hora, minuto] = horaAgendada.split(':');
 
@@ -371,26 +393,30 @@ async function enviarProduto(produto, index, client, horaAgendada) {
         if (produto) {
           await enviarProduto(produto, i, client, horaAgendada);
         } else {
-          const msg = `⚠️ Nenhum produto definido para o horário ${horaAgendada}`;
-          console.log(msg);
-          logToFile(msg);
+          log('warn', `Nenhum produto definido para o horário ${horaAgendada}`);
         }
       });
 
-      const msg = `⏰ Produto ${i} agendado para ${horaAgendada}`;
-      console.log(msg);
-      logToFile(msg);
+      horariosValidos.push(horaAgendada);
+      logToFile(`⏰ Produto ${i} agendado para ${horaAgendada}`);
     });
+
+    log('info', `Agendamento concluído: ${horariosValidos.length} horários → ${horariosValidos.join(', ')}`);
 
     // Tratativas globais
     process.on('unhandledRejection', (reason) => {
-      const msg = `❌ Rejeição não tratada: ${reason}`;
-      console.error(msg);
-      logToFile(msg);
+      log('error', `Rejeição não tratada: ${reason && reason.message ? reason.message : reason}`);
     });
+
+    // Encerramento manual (CTRL + C)
+    process.on('SIGINT', () => {
+    console.log('\n🛑 Encerrando script...');
+    process.exit();
+    });
+
   } catch (error) {
-    const msg = `❌ Erro ao iniciar WppConnect: ${error && error.message ? error.message : error}`;
-    console.error(msg);
-    logToFile(`${msg}\n${error && error.stack ? error.stack : ''}`);
+    const msg = `Erro ao iniciar WppConnect: ${error && error.message ? error.message : error}`;
+    log('error', msg);
+    logToFile(error && error.stack ? error.stack : '');
   }
 })();
